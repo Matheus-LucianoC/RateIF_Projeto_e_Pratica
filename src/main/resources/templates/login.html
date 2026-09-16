@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateIF | Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+<main class="auth-page">
+    <section class="auth-card">
+        <div class="brand">Rate<span>IF</span></div>
+        <p class="eyebrow">Sistema de Avaliação Escolar</p>
+        <h1>Entrar</h1>
+        <p class="subtitle">Acesse sua conta para continuar.</p>
+
+        <form id="loginForm" class="form">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+
+            <label for="senha">Senha</label>
+            <div class="password-wrap">
+                <input id="senha" type="password" placeholder="Digite sua senha" autocomplete="current-password" required>
+                <button type="button" class="show-password" onclick="togglePassword('senha', this)">Mostrar</button>
+            </div>
+
+            <div class="form-row">
+                <a href="/recuperacao">Esqueci minha senha</a>
+            </div>
+
+            <button class="btn primary" type="submit">Entrar</button>
+        </form>
+
+        <div class="divider"><span>ou</span></div>
+
+        <div id="googleButton" class="google-box"></div>
+        <p id="googleHint" class="hint">Para ativar o Google Auth, configure GOOGLE_CLIENT_ID.</p>
+
+        <p class="bottom-text">Ainda não possui uma conta? <a href="/cadastro">Criar cadastro</a></p>
+        <div id="message" class="message"></div>
+    </section>
+</main>
+
+<script src="/js/auth.js"></script>
+<script th:inline="javascript">
+    initLogin();
+
+    window.handleGoogleCredential = async function(response) {
+        await googleLogin(response.credential);
+    };
+
+    window.addEventListener("load", () => {
+        // O ID deve ser disponibilizado em uma variável global pelo backend em produção.
+        // Enquanto não configurado, o botão visual permanece desabilitado.
+        const clientId = /*[[${googleClientId}]]*/ "";
+        if (clientId) {
+            document.getElementById("googleHint").style.display = "none";
+            google.accounts.id.initialize({
+                client_id: clientId,
+                callback: handleGoogleCredential
+            });
+            google.accounts.id.renderButton(
+                document.getElementById("googleButton"),
+                { theme: "outline", size: "large", width: "100%" }
+            );
+        }
+    });
+</script>
+</body>
+</html>

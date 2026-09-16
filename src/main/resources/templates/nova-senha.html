@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateIF | Nova senha</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="auth-page">
+    <section class="auth-card">
+        <a class="back-link" href="/login">← Voltar para login</a>
+        <div class="brand">Rate<span>IF</span></div>
+        <p class="eyebrow">Redefinição</p>
+        <h1>Definir nova senha</h1>
+        <p class="subtitle">Crie uma nova senha para sua conta.</p>
+
+        <form id="novaSenhaForm" class="form">
+            <label for="senha">Nova senha</label>
+            <div class="password-wrap">
+                <input id="senha" type="password" placeholder="Mínimo de 6 caracteres" required>
+                <button type="button" class="show-password" onclick="togglePassword('senha', this)">Mostrar</button>
+            </div>
+
+            <label for="confirmarSenha">Confirmar nova senha</label>
+            <div class="password-wrap">
+                <input id="confirmarSenha" type="password" placeholder="Repita a nova senha" required>
+                <button type="button" class="show-password" onclick="togglePassword('confirmarSenha', this)">Mostrar</button>
+            </div>
+
+            <button class="btn primary" type="submit">Salvar nova senha</button>
+        </form>
+
+        <div id="message" class="message"></div>
+    </section>
+</main>
+
+<script src="/js/auth.js"></script>
+<script>
+    initNovaSenha(new URLSearchParams(window.location.search).get("token"));
+</script>
+</body>
+</html>

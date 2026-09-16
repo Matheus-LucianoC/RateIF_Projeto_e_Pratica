@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateIF | Início</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="dashboard-page">
+    <header class="topbar">
+        <div class="brand">Rate<span>IF</span></div>
+        <button class="btn secondary" onclick="logout()">Sair</button>
+    </header>
+
+    <section class="welcome-card">
+        <p class="eyebrow">Acesso autorizado</p>
+        <h1>Olá, <span th:text="${nome}">Usuário</span>!</h1>
+        <p>Você está autenticado no RateIF.</p>
+        <div class="profile-info">
+            <div><small>E-mail</small><strong th:text="${email}">email@exemplo.com</strong></div>
+            <div><small>Status</small><strong>Ativo</strong></div>
+        </div>
+    </section>
+</main>
+<script src="/js/auth.js"></script>
+</body>
+</html>

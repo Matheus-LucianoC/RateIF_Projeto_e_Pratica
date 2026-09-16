@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateIF | Cadastro</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="auth-page">
+    <section class="auth-card">
+        <a class="back-link" href="/login">← Voltar para login</a>
+        <div class="brand">Rate<span>IF</span></div>
+        <p class="eyebrow">Novo acesso</p>
+        <h1>Criar cadastro</h1>
+        <p class="subtitle">Preencha os dados para criar sua conta.</p>
+
+        <form id="cadastroForm" class="form">
+            <label for="nome">Nome completo</label>
+            <input id="nome" type="text" placeholder="Digite seu nome" autocomplete="name" required>
+
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+
+            <label for="senha">Senha</label>
+            <div class="password-wrap">
+                <input id="senha" type="password" placeholder="Mínimo de 6 caracteres" autocomplete="new-password" required>
+                <button type="button" class="show-password" onclick="togglePassword('senha', this)">Mostrar</button>
+            </div>
+
+            <label for="confirmarSenha">Confirmar senha</label>
+            <div class="password-wrap">
+                <input id="confirmarSenha" type="password" placeholder="Repita a senha" autocomplete="new-password" required>
+                <button type="button" class="show-password" onclick="togglePassword('confirmarSenha', this)">Mostrar</button>
+            </div>
+
+            <button class="btn primary" type="submit">Criar conta</button>
+        </form>
+
+        <p class="bottom-text">Já possui uma conta? <a href="/login">Entrar</a></p>
+        <div id="message" class="message"></div>
+    </section>
+</main>
+<script src="/js/auth.js"></script>
+<script>initCadastro();</script>
+</body>
+</html>

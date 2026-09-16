@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RateIF | Recuperação de senha</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="auth-page">
+    <section class="auth-card">
+        <a class="back-link" href="/login">← Voltar para login</a>
+        <div class="brand">Rate<span>IF</span></div>
+        <p class="eyebrow">Recuperação</p>
+        <h1>Recuperar senha</h1>
+        <p class="subtitle">Informe seu e-mail para gerar o acesso de redefinição.</p>
+
+        <form id="recuperacaoForm" class="form">
+            <label for="email">E-mail da conta</label>
+            <input id="email" type="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+            <button class="btn primary" type="submit">Gerar recuperação</button>
+        </form>
+
+        <div id="message" class="message"></div>
+        <div id="recoveryLink" class="recovery-link"></div>
+    </section>
+</main>
+<script src="/js/auth.js"></script>
+<script>initRecuperacao();</script>
+</body>
+</html>
