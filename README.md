@@ -86,8 +86,9 @@ As demais etapas de instalação e execução dependem das configurações prese
 
 ## Autores
 
-Matheus Luciano de Caldas Figueiredo
-Renan Aprigio Dias de Moura
+- Matheus Luciano de Caldas Figueiredo
+
+- Renan Aprigio Dias de Moura
 
 ## Status
 
