@@ -1,0 +1,5 @@
+import React from 'react';
+import {ActivityIndicator,Pressable,StyleSheet,Text} from 'react-native';
+import {COLORS} from '../theme';
+export function PrimaryButton({title,onPress,loading=false,secondary=false,danger=false}){return <Pressable onPress={onPress} disabled={loading} style={({pressed})=>[styles.button,secondary?styles.secondary:danger?styles.danger:styles.primary,pressed&&styles.pressed]}>{loading?<ActivityIndicator color={secondary?COLORS.primary:'#fff'}/>:<Text style={[styles.label,secondary&&styles.secondaryLabel,danger&&styles.dangerLabel]}>{title}</Text>}</Pressable>}
+const styles=StyleSheet.create({button:{minHeight:48,borderRadius:12,alignItems:'center',justifyContent:'center',paddingHorizontal:18,marginTop:10},primary:{backgroundColor:COLORS.primary},secondary:{backgroundColor:COLORS.surface,borderWidth:1,borderColor:COLORS.line},danger:{backgroundColor:'#FFF0F3',borderWidth:1,borderColor:'#F0C9D2'},label:{color:'#fff',fontSize:15,fontWeight:'800'},secondaryLabel:{color:COLORS.ink},dangerLabel:{color:COLORS.danger},pressed:{opacity:.8}});
